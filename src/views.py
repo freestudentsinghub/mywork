@@ -9,14 +9,16 @@ load_dotenv()
 import requests
 
 from mywork.src.utils import read_excel, user_stocks, user_currencies
+from mywork.src.logger import setup_logger
 
+logger = setup_logger("views", "views.log")
 
 def get_greeting(datetime_str) -> str:
     """Функция для определения времени суток на основе переданной даты и времени."""
 
     dt = datetime.strptime(datetime_str, "%d.%m.%Y %H:%M:%S")
     current_hour = dt.hour
-
+    logger.info(f"func get_greeting do {datetime_str}")
     if 6 <= current_hour < 12:
         return "Доброе утро"
     elif 12 <= current_hour < 18:
@@ -37,6 +39,7 @@ def for_each_card(transactions: List[dict]) -> Tuple[List[str], List[float], Lis
     cards = [transaction.get("Номер карты") for transaction in transactions]
     total_spend = [transaction.get("Сумма платежа") for transaction in transactions]
     cashback = [transaction.get("Сумма платежа") // 100 for transaction in transactions]
+    logger.info("func for_each_card done")
     return cards, total_spend, cashback
 
 
@@ -45,13 +48,14 @@ def for_each_card(transactions: List[dict]) -> Tuple[List[str], List[float], Lis
 
 def top_transactions_by_payment_amount(transactions: List[dict]) -> List[dict]:
     """Топ-5 транзакций по сумме платежа."""
+    logger.info("func top_transactions_by_payment_amount start")
+
     total_spend = [
         transaction.get("Сумма платежа")
         for transaction in transactions
         if transaction.get("Сумма платежа") >= 0
     ]
     top_five = sorted(total_spend, reverse=True)[:5]
-
     last_top = [
         transaction
         for transaction in transactions
@@ -69,8 +73,11 @@ def top_transactions_by_payment_amount(transactions: List[dict]) -> List[dict]:
                     "description": transaction["Описание"],
                 }
             )
+        logger.info("func top_transactions_by_payment_amount done")
+
         return result
     else:
+        logger.info("func top_transactions_by_payment_amount done")
         return []
 
 
@@ -79,7 +86,9 @@ def top_transactions_by_payment_amount(transactions: List[dict]) -> List[dict]:
 
 def currency_rates_usd() -> Optional[float]:
     """Курс валют USD"""
+
     symbol = user_currencies[0]
+    logger.info(f"func currency_rates_usd start {symbols}")
     currency_exchange_rate = requests.get(
         f"https://v6.exchangerate-api.com/v6/04fed55e4543c3c22311996f/latest/{symbol}"
     )
@@ -87,6 +96,7 @@ def currency_rates_usd() -> Optional[float]:
     conversion_rates = data.get("conversion_rates")
 
     if "RUB" in conversion_rates:
+        logger.info(f"func currency_rates_usd end {conversion_rates["RUB"]}")
         return conversion_rates["RUB"]
     else:
         return None
@@ -99,6 +109,7 @@ def currency_rates_usd() -> Optional[float]:
 def currency_rates_eur() -> Optional[float]:
     """Курс валют EUR"""
     symbol = user_currencies[1]
+
     currency_exchange_rate = requests.get(
         f"https://v6.exchangerate-api.com/v6/04fed55e4543c3c22311996f/latest/{symbol}"
     )
@@ -106,6 +117,7 @@ def currency_rates_eur() -> Optional[float]:
     conversion_rates = data.get("conversion_rates")
 
     if "RUB" in conversion_rates:
+        logger.info(f"func currency_rates_usd end {conversion_rates["RUB"]}")
         return conversion_rates["RUB"]
     else:
         return None
@@ -118,7 +130,7 @@ def get_stock_prices(symbols: List[str]) -> List[dict]:
     """Получение стоимости акций по списку символов компаний."""
     api_key = os.getenv('API_KEY')
     stock_prices = []
-
+    logger.info(f"func get_stock_prices start {symbols}")
     for symbol in symbols:
         url = (
             f"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={symbol}"
@@ -138,7 +150,7 @@ def get_stock_prices(symbols: List[str]) -> List[dict]:
                 stock_prices.append({"stock": symbol, "price": None})
         else:
             stock_prices.append({"stock": symbol, "price": None})
-
+    logger.info("func get_stock_prices end")
     return stock_prices
 
 

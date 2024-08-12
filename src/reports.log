@@ -1,0 +1,3 @@
+2024-08-12 11:54:39,490 reports.py INFO: decorator report_to_file_default done
+2024-08-12 11:54:39,491 reports.py INFO: start spending by category Супермаркеты, 31.12.2021 16:42:04
+2024-08-12 11:54:39,549 reports.py INFO: spending_by_category done
