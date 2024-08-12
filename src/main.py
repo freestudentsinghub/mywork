@@ -1,8 +1,10 @@
 import json
 
-from mywork.src.views import get_greeting, for_each_card, top_transactions_by_payment_amount, symbols
-from mywork.src.views import currency_rates_eur, currency_rates_usd, get_stock_prices, transactions
 from mywork.src.logger import setup_logger
+from mywork.src.views import (currency_rates_eur, currency_rates_usd,
+                              for_each_card, get_greeting, get_stock_prices,
+                              symbols, top_transactions_by_payment_amount,
+                              transactions)
 
 logger = setup_logger("utils", "utils.log")
 

@@ -1,17 +1,18 @@
 # -*- coding: utf-8 -*-
 
-import json
-from datetime import datetime
-from typing import List, Optional, Tuple
 import os
-from dotenv import load_dotenv
-load_dotenv()
-import requests
+from datetime import datetime
+from typing import List, Optional, Tuple, Any
 
-from mywork.src.utils import read_excel, user_stocks, user_currencies
+import requests
+from dotenv import load_dotenv
+
 from mywork.src.logger import setup_logger
+from mywork.src.utils import read_excel, user_currencies, user_stocks
 
 logger = setup_logger("views", "views.log")
+load_dotenv()
+
 
 def get_greeting(datetime_str) -> str:
     """Функция для определения времени суток на основе переданной даты и времени."""
@@ -32,7 +33,7 @@ def get_greeting(datetime_str) -> str:
 transactions = read_excel("../data/operations.xls")
 
 
-def for_each_card(transactions: List[dict]) -> Tuple[List[str], List[float], List[int]]:
+def for_each_card(transactions: List[dict]) -> Tuple[List[str], List[float], List[float]]:
     """По каждой карте: последние 4 цифры карты;
     общая сумма расходов;
     кешбэк (1 рубль на каждые 100 рублей)."""
@@ -50,12 +51,12 @@ def top_transactions_by_payment_amount(transactions: List[dict]) -> List[dict]:
     """Топ-5 транзакций по сумме платежа."""
     logger.info("func top_transactions_by_payment_amount start")
 
-    total_spend = [
+    total_spend: List[float | None] = [
         transaction.get("Сумма платежа")
         for transaction in transactions
-        if transaction.get("Сумма платежа") >= 0
+        if transaction.get("Сумма платежа") is not None and transaction.get("Сумма платежа") >= 0
     ]
-    top_five = sorted(total_spend, reverse=True)[:5]
+    top_five = sorted([spend for spend in total_spend if spend is not None], reverse=True)[:5]
     last_top = [
         transaction
         for transaction in transactions
@@ -81,7 +82,7 @@ def top_transactions_by_payment_amount(transactions: List[dict]) -> List[dict]:
         return []
 
 
-# print(top_transactions_by_payment_amount(transactions))
+#print(top_transactions_by_payment_amount(transactions))
 
 
 def currency_rates_usd() -> Optional[float]:
@@ -103,7 +104,6 @@ def currency_rates_usd() -> Optional[float]:
 
 
 # print(currency_rates_usd())
-
 
 
 def currency_rates_eur() -> Optional[float]:
@@ -128,7 +128,7 @@ def currency_rates_eur() -> Optional[float]:
 
 def get_stock_prices(symbols: List[str]) -> List[dict]:
     """Получение стоимости акций по списку символов компаний."""
-    api_key = os.getenv('API_KEY')
+    api_key = os.getenv("API_KEY")
     stock_prices = []
     logger.info(f"func get_stock_prices start {symbols}")
     for symbol in symbols:
@@ -157,5 +157,3 @@ def get_stock_prices(symbols: List[str]) -> List[dict]:
 symbols = user_stocks
 result = get_stock_prices(symbols)
 # print(result)
-
-

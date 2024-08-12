@@ -3,3 +3,7 @@
 2024-08-12 12:09:00,185 views.py INFO: func for_each_card done
 2024-08-12 12:09:00,199 views.py INFO: func get_stock_prices start ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
 2024-08-12 12:09:02,047 views.py INFO: func get_stock_prices end
+2024-08-12 15:59:07,562 views.py INFO: func top_transactions_by_payment_amount start
+2024-08-12 15:59:07,565 views.py INFO: func top_transactions_by_payment_amount done
+2024-08-12 15:59:07,565 views.py INFO: func get_stock_prices start ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2024-08-12 15:59:09,039 views.py INFO: func get_stock_prices end

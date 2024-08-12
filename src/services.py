@@ -1,10 +1,8 @@
 import json
-
 from typing import List
 
-from mywork.src.utils import read_excel
-
 from mywork.src.logger import setup_logger
+from mywork.src.utils import read_excel
 
 logger = setup_logger("services", "services.log")
 

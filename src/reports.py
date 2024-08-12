@@ -2,16 +2,19 @@ from datetime import datetime, timedelta
 from typing import Optional
 
 import pandas as pd
+
+from mywork.src.logger import setup_logger
 from mywork.src.utils import read_excel
 
 transactions_data = read_excel("../data/operations.xls")
 transactions = pd.DataFrame(transactions_data)
-from mywork.src.logger import setup_logger
 
 logger = setup_logger("reports", "reports.log")
 
+
 def report_to_file_default(func):
-    '''Декоратор без параметра — записывает данные отчета в файл с названием по умолчанию'''
+    """Декоратор без параметра — записывает данные отчета в файл с названием по умолчанию"""
+
     def wrapper(*args, **kwargs):
 
         result = func(*args, **kwargs)

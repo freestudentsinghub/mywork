@@ -1,0 +1,24 @@
+2024-08-12 12:33:26,078 views.py INFO: func get_stock_prices start ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2024-08-12 12:33:27,842 views.py INFO: func get_stock_prices end
+2024-08-12 12:33:45,552 views.py INFO: func get_stock_prices start ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2024-08-12 12:33:46,891 views.py INFO: func get_stock_prices end
+2024-08-12 12:34:22,013 views.py INFO: func get_stock_prices start ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2024-08-12 12:34:23,881 views.py INFO: func get_stock_prices end
+2024-08-12 12:34:24,601 views.py INFO: func get_greeting do 31.12.2021 06:00:00
+2024-08-12 12:34:24,606 views.py INFO: func get_greeting do 31.12.2021 12:00:00
+2024-08-12 12:34:24,611 views.py INFO: func get_greeting do 31.12.2021 18:00:00
+2024-08-12 12:34:24,616 views.py INFO: func get_greeting do 31.12.2021 00:00:00
+2024-08-12 12:34:43,302 views.py INFO: func get_stock_prices start ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2024-08-12 12:34:44,623 views.py INFO: func get_stock_prices end
+2024-08-12 12:34:45,365 views.py INFO: func for_each_card done
+2024-08-12 12:35:00,151 views.py INFO: func get_stock_prices start ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2024-08-12 12:35:02,079 views.py INFO: func get_stock_prices end
+2024-08-12 12:35:02,859 views.py INFO: func top_transactions_by_payment_amount start
+2024-08-12 12:35:02,862 views.py INFO: func top_transactions_by_payment_amount done
+2024-08-12 12:35:15,103 views.py INFO: func get_stock_prices start ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2024-08-12 12:35:16,982 views.py INFO: func get_stock_prices end
+2024-08-12 12:35:17,690 views.py INFO: func currency_rates_usd end 93.2726
+2024-08-12 12:35:26,910 views.py INFO: func get_stock_prices start ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2024-08-12 12:35:28,804 views.py INFO: func get_stock_prices end
+2024-08-12 12:35:29,535 views.py INFO: func get_stock_prices start ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2024-08-12 12:35:31,162 views.py INFO: func get_stock_prices end

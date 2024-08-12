@@ -1,0 +1,39 @@
+2024-08-12 12:24:21,156 utils.py INFO: func user currencies done ['USD', 'EUR']
+2024-08-12 12:24:21,157 utils.py INFO: func user stocks done ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2024-08-12 12:24:21,658 utils.py INFO: func read excel done
+2024-08-12 12:33:23,827 utils.py INFO: func user currencies done ['USD', 'EUR']
+2024-08-12 12:33:23,828 utils.py INFO: func user stocks done ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2024-08-12 12:33:25,964 utils.py INFO: func read excel done
+2024-08-12 12:33:43,562 utils.py INFO: func user currencies done ['USD', 'EUR']
+2024-08-12 12:33:43,563 utils.py INFO: func user stocks done ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2024-08-12 12:33:45,460 utils.py INFO: func read excel done
+2024-08-12 12:34:20,013 utils.py INFO: func user currencies done ['USD', 'EUR']
+2024-08-12 12:34:20,014 utils.py INFO: func user stocks done ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2024-08-12 12:34:21,909 utils.py INFO: func read excel done
+2024-08-12 12:34:24,478 utils.py INFO: func read excel done
+2024-08-12 12:34:41,288 utils.py INFO: func user currencies done ['USD', 'EUR']
+2024-08-12 12:34:41,288 utils.py INFO: func user stocks done ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2024-08-12 12:34:43,208 utils.py INFO: func read excel done
+2024-08-12 12:34:45,198 utils.py INFO: func read excel done
+2024-08-12 12:34:57,974 utils.py INFO: func user currencies done ['USD', 'EUR']
+2024-08-12 12:34:57,974 utils.py INFO: func user stocks done ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2024-08-12 12:35:00,040 utils.py INFO: func read excel done
+2024-08-12 12:35:02,700 utils.py INFO: func read excel done
+2024-08-12 12:35:12,837 utils.py INFO: func user currencies done ['USD', 'EUR']
+2024-08-12 12:35:12,838 utils.py INFO: func user stocks done ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2024-08-12 12:35:14,992 utils.py INFO: func read excel done
+2024-08-12 12:35:17,539 utils.py INFO: func read excel done
+2024-08-12 12:35:24,889 utils.py INFO: func user currencies done ['USD', 'EUR']
+2024-08-12 12:35:24,889 utils.py INFO: func user stocks done ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2024-08-12 12:35:26,805 utils.py INFO: func read excel done
+2024-08-12 12:35:29,369 utils.py INFO: func read excel done
+2024-08-12 12:44:31,194 utils.py INFO: func read excel done
+2024-08-12 12:44:31,383 utils.py INFO: func user currencies done ['USD', 'EUR']
+2024-08-12 12:44:31,384 utils.py INFO: func user stocks done ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2024-08-12 12:44:31,429 utils.py INFO: func read excel done
+2024-08-12 14:48:02,289 utils.py INFO: func user currencies done ['USD', 'EUR']
+2024-08-12 14:48:02,290 utils.py INFO: func user stocks done ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2024-08-12 14:48:02,306 utils.py INFO: func user currencies done ['USD', 'EUR']
+2024-08-12 14:49:11,852 utils.py INFO: func user currencies done ['USD', 'EUR']
+2024-08-12 14:49:11,854 utils.py INFO: func user stocks done ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2024-08-12 14:49:11,877 utils.py INFO: func user stocks done ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
