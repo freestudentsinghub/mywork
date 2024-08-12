@@ -3,10 +3,12 @@
 import json
 from datetime import datetime
 from typing import List, Optional, Tuple
-
+import os
+from dotenv import load_dotenv
+load_dotenv()
 import requests
 
-from mywork.src.utils import read_excel
+from mywork.src.utils import read_excel, user_stocks, user_currencies
 
 
 def get_greeting(datetime_str) -> str:
@@ -77,8 +79,9 @@ def top_transactions_by_payment_amount(transactions: List[dict]) -> List[dict]:
 
 def currency_rates_usd() -> Optional[float]:
     """Курс валют USD"""
+    symbol = user_currencies[0]
     currency_exchange_rate = requests.get(
-        "https://v6.exchangerate-api.com/v6/04fed55e4543c3c22311996f/latest/USD"
+        f"https://v6.exchangerate-api.com/v6/04fed55e4543c3c22311996f/latest/{symbol}"
     )
     data = currency_exchange_rate.json()
     conversion_rates = data.get("conversion_rates")
@@ -92,10 +95,12 @@ def currency_rates_usd() -> Optional[float]:
 # print(currency_rates_usd())
 
 
+
 def currency_rates_eur() -> Optional[float]:
     """Курс валют EUR"""
+    symbol = user_currencies[1]
     currency_exchange_rate = requests.get(
-        "https://v6.exchangerate-api.com/v6/04fed55e4543c3c22311996f/latest/EUR"
+        f"https://v6.exchangerate-api.com/v6/04fed55e4543c3c22311996f/latest/{symbol}"
     )
     data = currency_exchange_rate.json()
     conversion_rates = data.get("conversion_rates")
@@ -111,7 +116,7 @@ def currency_rates_eur() -> Optional[float]:
 
 def get_stock_prices(symbols: List[str]) -> List[dict]:
     """Получение стоимости акций по списку символов компаний."""
-    api_key = "RO2A922012F628NY"
+    api_key = os.getenv('API_KEY')
     stock_prices = []
 
     for symbol in symbols:
@@ -137,7 +142,7 @@ def get_stock_prices(symbols: List[str]) -> List[dict]:
     return stock_prices
 
 
-symbols = ["AAPL", "AMZN", "GOOGL", "MSFT", "TSLA"]
+symbols = user_stocks
 result = get_stock_prices(symbols)
 # print(result)
 
