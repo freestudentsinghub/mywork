@@ -11,4 +11,4 @@ def read_excel(path: str) -> list[dict[Hashable, Any]]:
     return excel_file.to_dict(orient="records")
 
 
-print(read_excel('../data/operations.xls'))
+# print(read_excel('../data/operations.xls'))
